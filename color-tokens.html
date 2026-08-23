@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Whale color tokens — AMC palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --paper: #F3ECDA;
+    --paper-2: #EAE1C8;
+    --paper-3: #DFD4B3;
+    --ink: #15224A;
+    --ink-2: #3B4874;
+    --ink-3: #6B7494;
+    --riso-red: #E8464A;
+    --riso-red-ink: #C0353A;
+    --mist: rgba(21, 34, 74, 0.08);
+    --mist-2: rgba(21, 34, 74, 0.16);
+
+    --bg: var(--paper);
+    --bg-alt: var(--paper-2);
+    --fg: var(--ink);
+    --fg-2: var(--ink-2);
+    --fg-3: var(--ink-3);
+    --accent: var(--riso-red);
+    --accent-ink: var(--riso-red-ink);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 28px 80px; }
+
+  header { margin-bottom: 48px; max-width: 640px; }
+  .kicker {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--riso-red);
+    display: block;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  h1 em { font-style: italic; color: var(--riso-red); }
+  .lede { color: var(--ink-2); max-width: 54ch; }
+  .lede a { color: var(--ink); }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 56px 0 20px;
+  }
+  h3 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+
+  .trio {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 3px;
+    margin-top: 36px;
+  }
+  .trio .swatch { min-height: 220px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+  .trio .name { font-family: "Playfair Display", serif; font-size: 28px; font-weight: 700; line-height: 1.1; }
+  .trio .meta { font-size: 13px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 3px;
+  }
+  .swatch { padding: 18px; min-height: 148px; display: flex; flex-direction: column; justify-content: space-between; }
+  .swatch .token { font-weight: 700; font-size: 14px; }
+  .swatch .hex { font-size: 12px; opacity: 0.8; margin-top: 4px; word-break: break-all; }
+  .swatch .role { font-size: 12px; margin-top: 16px; opacity: 0.85; }
+
+  .on-paper { background: var(--paper); color: var(--ink); }
+  .on-paper-2 { background: var(--paper-2); color: var(--ink); }
+  .on-paper-3 { background: var(--paper-3); color: var(--ink); }
+  .on-ink { background: var(--ink); color: var(--paper); }
+  .on-ink-2 { background: var(--ink-2); color: var(--paper); }
+  .on-ink-3 { background: var(--ink-3); color: var(--paper); }
+  .on-red { background: var(--riso-red); color: var(--paper); }
+  .on-red-ink { background: var(--riso-red-ink); color: var(--paper); }
+  .on-mist { background: var(--mist); color: var(--ink); border: 1px solid var(--mist-2); }
+  .on-mist-2 { background: var(--mist-2); color: var(--ink); }
+
+  .mist-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+  .mist-demo { padding: 20px; min-height: 120px; }
+  .mist-demo .chip {
+    display: inline-block;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 12px 14px; vertical-align: top; border-top: 1px solid var(--mist-2); }
+  th { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+  .dot {
+    display: inline-block;
+    width: 12px; height: 12px;
+    vertical-align: -1px;
+    margin-right: 8px;
+  }
+
+  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3px; }
+  .pair { padding: 28px 22px; min-height: 140px; }
+  .pair .sample { font-family: "Playfair Display", serif; font-size: 26px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+  .pair .note { font-size: 12px; opacity: 0.8; }
+
+  .btn-demo {
+    display: inline-block;
+    background: var(--riso-red);
+    color: var(--paper);
+    padding: 12px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .btn-demo:hover { background: var(--riso-red-ink); }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mist-2);
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+  footer a { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .trio, .mist-row { grid-template-columns: 1fr; }
+    .wrap { padding: 32px 20px 64px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="kicker">Design tokens · Whale Fellowship</span>
+    <h1>The new palette is a <em>3-ink</em> system.</h1>
+    <p class="lede">
+      Color tokens from
+      <a href="https://ai-makers.club/colors_and_type.css">ai-makers.club/colors_and_type.css</a>,
+      applied to
+      <a href="WHALE_Fellowship_Landing_Page_v2.html">WHALE_Fellowship_Landing_Page_v2.html</a>.
+      Paper, ink, and riso red. No gold. No sage. No second dark purple.
+    </p>
+  </header>
+
+  <div class="trio">
+    <div class="swatch on-paper">
+      <div>
+        <div class="name">Paper</div>
+        <div class="meta">Page, cards, light text on navy</div>
+      </div>
+      <div class="meta">--paper<br/>#F3ECDA</div>
+    </div>
+    <div class="swatch on-ink">
+      <div>
+        <div class="name">Ink</div>
+        <div class="meta">Type, nav, dark sections</div>
+      </div>
+      <div class="meta">--ink<br/>#15224A</div>
+    </div>
+    <div class="swatch on-red">
+      <div>
+        <div class="name">Riso red</div>
+        <div class="meta">CTA, emphasis, former gold</div>
+      </div>
+      <div class="meta">--riso-red<br/>#E8464A</div>
+    </div>
+  </div>
+
+  <h2>Primitives</h2>
+  <h3>Paper</h3>
+  <div class="grid">
+    <div class="swatch on-paper">
+      <div>
+        <div class="token">--paper</div>
+        <div class="hex">#F3ECDA</div>
+      </div>
+      <div class="role">Page background. Light-section fill. Button and heading text on ink.</div>
+    </div>
+    <div class="swatch on-paper-2">
+      <div>
+        <div class="token">--paper-2</div>
+        <div class="hex">#EAE1C8</div>
+      </div>
+      <div class="role">Raised cards on paper: benefits, modules, testimonials.</div>
+    </div>
+    <div class="swatch on-paper-3">
+      <div>
+        <div class="token">--paper-3</div>
+        <div class="hex">#DFD4B3</div>
+      </div>
+      <div class="role">Muted text on dark sections. Hero subcopy, step body, footer.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:28px">Ink</h3>
+  <div class="grid">
+    <div class="swatch on-ink">
+      <div>
+        <div class="token">--ink</div>
+        <div class="hex">#15224A</div>
+      </div>
+      <div class="role">Body text. Nav, hero, solution, fit, how, pricing, footer.</div>
+    </div>
+    <div class="swatch on-ink-2">
+      <div>
+        <div class="token">--ink-2</div>
+        <div class="hex">#3B4874</div>
+      </div>
+      <div class="role">Secondary text on light cards.</div>
+    </div>
+    <div class="swatch on-ink-3">
+      <div>
+        <div class="token">--ink-3</div>
+        <div class="hex">#6B7494</div>
+      </div>
+      <div class="role">Tertiary text on paper. Labels in this guide.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:28px">Accent</h3>
+  <div class="grid">
+    <div class="swatch on-red">
+      <div>
+        <div class="token">--riso-red</div>
+        <div class="hex">#E8464A</div>
+      </div>
+      <div class="role">Bar, buttons, eyebrows, italic emphasis, price, logo.</div>
+    </div>
+    <div class="swatch on-red-ink">
+      <div>
+        <div class="token">--riso-red-ink</div>
+        <div class="hex">#C0353A</div>
+      </div>
+      <div class="role">Button hover. Darker red for pressed / hover states.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:28px">Mist</h3>
+  <div class="mist-row">
+    <div class="mist-demo on-paper">
+      On paper
+      <div class="chip" style="background:var(--mist);color:var(--ink)">--mist 8%</div>
+      <div class="chip" style="background:var(--mist-2);color:var(--ink)">--mist-2 16%</div>
+    </div>
+    <div class="mist-demo on-ink">
+      On ink
+      <div class="chip" style="background:var(--mist);color:var(--paper)">--mist 8%</div>
+      <div class="chip" style="background:var(--mist-2);color:var(--paper)">--mist-2 16%</div>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:14px">
+    <code>--mist</code> is ink at 8% opacity. <code>--mist-2</code> is 16%.
+    Use on paper for rules and watermark numbers. On ink it nearly disappears — use a paper or riso mix instead.
+  </p>
+
+  <h2>Semantic aliases</h2>
+  <table>
+    <thead>
+      <tr><th>Alias</th><th>Resolves to</th><th>Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>--bg</code></td><td>--paper</td><td>Page background</td></tr>
+      <tr><td><code>--bg-alt</code></td><td>--paper-2</td><td>Alternate / raised surface</td></tr>
+      <tr><td><code>--fg</code></td><td>--ink</td><td>Primary text</td></tr>
+      <tr><td><code>--fg-2</code></td><td>--ink-2</td><td>Secondary text</td></tr>
+      <tr><td><code>--fg-3</code></td><td>--ink-3</td><td>Tertiary text</td></tr>
+      <tr><td><code>--accent</code></td><td>--riso-red</td><td>CTA and emphasis</td></tr>
+      <tr><td><code>--accent-ink</code></td><td>--riso-red-ink</td><td>Accent hover</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Pairings</h2>
+  <div class="pairs">
+    <div class="pair on-paper">
+      <div class="sample">Ink on paper</div>
+      <div class="note">Default reading pair. Headings and body on light sections.</div>
+    </div>
+    <div class="pair on-ink">
+      <div class="sample">Paper on ink</div>
+      <div class="note">Text on the one red band: solution section only.</div>
+    </div>
+    <div class="pair on-ink">
+      <div class="sample" style="color:var(--paper-3)">Paper-3 on ink</div>
+      <div class="note">Muted copy on dark. Subheads, captions, footer.</div>
+    </div>
+    <div class="pair on-red">
+      <div class="sample">Paper on red</div>
+      <div class="note">Primary buttons and the urgency bar.</div>
+    </div>
+    <div class="pair on-paper-2">
+      <div class="sample" style="color:var(--ink-2)">Ink-2 on paper-2</div>
+      <div class="note">Card body text. Benefits, modules, quotes.</div>
+    </div>
+    <div class="pair on-paper">
+      <div class="sample" style="color:var(--riso-red)">Red on paper</div>
+      <div class="note">Eyebrows, italic emphasis, spots remaining.</div>
+    </div>
+  </div>
+  <p style="margin-top:20px"><a class="btn-demo" href="#">Hover for --riso-red-ink</a></p>
+
+  <h2>Where Whale uses them</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>Token</th><th>On the page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="dot" style="background:var(--paper);border:1px solid var(--mist-2)"></span></td><td><code>--paper</code></td><td>Page, nav, hero, cards, pricing, footer. Text on the red band.</td></tr>
+      <tr><td><span class="dot" style="background:var(--paper-2);border:1px solid var(--mist-2)"></span></td><td><code>--paper-2</code></td><td>Countdown tiles only.</td></tr>
+      <tr><td><span class="dot" style="background:var(--ink)"></span></td><td><code>--ink</code></td><td>Type, borders, hero CTA, price. Not used as a section fill.</td></tr>
+      <tr><td><span class="dot" style="background:var(--ink-2)"></span></td><td><code>--ink-2</code></td><td>Strip, labels, footer, muted paper copy.</td></tr>
+      <tr><td><span class="dot" style="background:var(--riso-red)"></span></td><td><code>--riso-red</code></td><td>Solution band, stats, module numbers, apply CTA, italic words.</td></tr>
+      <tr><td><span class="dot" style="background:var(--riso-red-ink)"></span></td><td><code>--riso-red-ink</code></td><td>Eyebrows and kickers, matching AMC --riso-red-ink.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Old Whale → new</h2>
+  <table>
+    <thead>
+      <tr><th>Was</th><th>Now</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>--plum / --plum2</td><td>--ink</td><td>One navy. No second dark.</td></tr>
+      <tr><td>--coral / --gold</td><td>--riso-red</td><td>Accent and former gold share one hue.</td></tr>
+      <tr><td>--cream / --white</td><td>--paper</td><td>Cards that sat on cream use --paper-2.</td></tr>
+      <tr><td>--muted</td><td>--paper-3 or --ink-3</td><td>Paper-3 on dark. Ink-3 on light.</td></tr>
+      <tr><td>--mid</td><td>--ink-2</td><td>Card body.</td></tr>
+      <tr><td>--sage</td><td>--paper on dark</td><td>Yes-column checks. No green in the system.</td></tr>
+      <tr><td>#e03030 hover</td><td>--riso-red-ink</td><td>Tokenized hover.</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    Source: <a href="https://ai-makers.club/">ai-makers.club</a> color tokens.
+    Landing page: <a href="WHALE_Fellowship_Landing_Page_v2.html">WHALE_Fellowship_Landing_Page_v2.html</a>.
+  </footer>
+
+</div>
+</body>
+</html>
