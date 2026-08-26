@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>WHALE Fellowship 2026 — Gynix Afrika</title>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -28,7 +28,7 @@
     --accent-ink: var(--riso-red-ink);
     --border: 1.5px solid var(--ink);
     --font-sans: 'Geist', sans-serif;
-    --font-serif: 'Instrument Serif', serif;
+    --font-serif: 'Ibarra Real Nova', serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
     --ease-expo: cubic-bezier(0.16, 1.08, 0.38, 0.98);
     --dur-reveal: 1000ms;
@@ -79,7 +79,7 @@
   .type-caret { display: inline-block; color: var(--riso-red); font-style: normal; font-weight: 400; margin-left: 1px; animation: caret-blink 1s steps(1) infinite; }
   @keyframes caret-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
   .hero-sub { font-size: clamp(15px, 1.8vw, 19px); color: var(--paper); max-width: 42ch; margin: 24px 0 32px; line-height: 1.55; font-weight: 400; }
-  .hero-sub strong { color: var(--paper); font-weight: 600; }
+  .hero-sub strong { color: var(--paper); font-weight: 400; }
   .hero-cta-wrap { display: flex; flex-direction: column; align-items: flex-start; }
 
   .qualify-pill { background: rgba(255,255,255,0.08); backdrop-filter: blur(6px) saturate(110%); -webkit-backdrop-filter: blur(6px) saturate(110%); border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.24); display: flex; align-items: center; width: 100%; max-width: 400px; height: 60px; text-decoration: none; color: var(--paper); }
@@ -137,6 +137,13 @@
   .proof-item:last-child { border-right: none; }
   .proof-num { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--riso-red); display: block; line-height: 1; }
   .proof-lbl { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); text-transform: uppercase; letter-spacing: -0.02em; margin-top: 6px; font-weight: 400; }
+
+  .support-bar { display: flex; flex-direction: column; align-items: center; background: var(--paper); color: var(--ink); border-bottom: var(--border); padding: 28px 48px 32px; }
+  .support-label { font-family: var(--font-mono); font-size: 11px; font-weight: 400; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); margin: 0 0 20px; text-align: center; }
+  .support-logos { list-style: none; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px 56px; min-height: 40px; margin: 0; padding: 0; }
+  .support-logos li { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+  .support-logos svg { display: block; height: 22px; width: auto; fill: currentColor; flex-shrink: 0; }
+  .support-logos span { font-family: var(--font-sans); font-size: 18px; font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
   .js-rise { opacity: 0; transform: translateY(32px); transition: opacity var(--dur-reveal) var(--ease-expo), transform var(--dur-reveal) var(--ease-expo); }
   .js-rise.is-in { opacity: 1; transform: none; }
 
@@ -172,6 +179,12 @@
   .gets { background: var(--paper); }
   .gets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; margin-top: 48px; border: var(--border); }
   .get-card { background: var(--paper); border-right: 1px solid var(--mist-2); border-bottom: 1px solid var(--mist-2); padding: 32px 28px; }
+  .get-illust { display: block; width: 152px; height: 92px; margin: 0 0 22px; color: var(--ink); }
+  .get-illust svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .get-illust .gi-s { fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+  .get-illust .gi-fill { fill: var(--paper-2); stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+  .get-illust .gi-red { fill: none; stroke: var(--riso-red); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+  .get-illust .gi-red-fill { fill: color-mix(in srgb, var(--riso-red) 16%, var(--paper)); stroke: var(--riso-red); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
   .get-card h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.02em; }
   .get-card p { font-size: 14px; color: var(--ink); line-height: 1.65; }
 
@@ -241,6 +254,8 @@
 
   @media (max-width: 680px) {
     .proof-bar { flex-direction: column; }
+    .support-bar { padding: 24px 20px 28px; }
+    .support-logos { gap: 28px 36px; }
     .proof-item { border-right: none; border-bottom: 1px solid var(--mist-2); padding: 22px 24px; }
     .problem-card { border-right: none; }
     .problem-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--mist-2); }
@@ -295,11 +310,11 @@
     <h1>
       <span class="js-reveal"><span class="js-reveal-inner">Your passion for</span></span>
       <span class="js-reveal"><span class="js-reveal-inner">women's health</span></span>
-      <span class="js-reveal"><span class="js-reveal-inner">deserves <span class="type-slot"><em id="hero-type">a portfolio</em><span class="type-caret" aria-hidden="true">|</span></span></span></span>
+      <span class="js-reveal"><span class="js-reveal-inner">deserves <span class="type-slot"><em id="hero-type">evidence</em><span class="type-caret" aria-hidden="true">|</span></span></span></span>
     </h1>
     <p class="hero-sub js-reveal"><span class="js-reveal-inner">
-      WHALE is a 6-month fellowship where you don't just learn women's health —
-      <strong>you research it, take it into communities, and build a body of work that speaks for you.</strong>
+      WHALE is a 6-month fellowship where you don't just learn women's health.
+      <strong>You research it, take it into communities, and build a body of work that speaks for you.</strong>
     </span></p>
     <div class="hero-cta-wrap js-reveal">
       <span class="js-reveal-inner">
@@ -339,11 +354,34 @@
   <div class="proof-item"><span class="proof-num">6</span><span class="proof-lbl">Countries Represented</span></div>
 </div>
 
+<!-- RECOGNITION -->
+<div class="support-bar">
+  <p class="support-label">Recognition and support from</p>
+  <ul class="support-logos">
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .533 5.387.533 12s5.334 12 11.947 12c3.627 0 6.347-1.2 8.48-3.453 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053z"/></svg>
+      <span>Google</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522zm2.521-10.123a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523z"/></svg>
+      <span>Slack</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.8 7.2h9.6A2.4 2.4 0 0 1 16.8 9.6v6a2.4 2.4 0 0 1-2.4 2.4H4.8A2.4 2.4 0 0 1 2.4 15.6v-6A2.4 2.4 0 0 1 4.8 7.2zm13.2 2.1 4.2-2.4c.4-.24.8 0 .8.42v9.36c0 .42-.4.66-.8.42l-4.2-2.4z"/></svg>
+      <span>Zoom</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h5.2v5.2H6zm6.8 0H18v5.2h-5.2zM6 10.8h5.2V16H6zm6.8 3.2 5.2 5.2V14h-5.2z"/></svg>
+      <span>Goodstack</span>
+    </li>
+  </ul>
+</div>
+
 <!-- PROBLEM -->
 <section class="problem">
   <div class="container">
     <span class="eyebrow">Be honest with yourself</span>
-    <h2>You care deeply.<br/>But no one can<br/><em>see it yet.</em></h2>
+    <h2>You care deeply.<br/><span style="white-space:nowrap">But no one can <em>see it yet.</em></span></h2>
     <div class="problem-grid">
       <div class="problem-card">You've attended the talks, shared the posts, watched the documentaries. But when an opportunity asks <strong>what you have actually done</strong> — the silence is deafening.</div>
       <div class="problem-card">You want a career in global health, public health, or advocacy. But every role wants experience you haven't had the platform to build. <strong>A cycle with no entry point.</strong></div>
@@ -380,26 +418,107 @@
     </div>
     <div class="gets-grid">
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <path class="gi-s" d="M46 20.5l68 2.2 1.6 56.8-69.4-3.4z"/>
+            <path class="gi-fill" d="M32.5 16.2c-.2-1.3.7-2.4 2-2.5l66.2-2.1c1.2-.1 2.3.9 2.4 2.1l3.4 58.6c.1 1.3-.8 2.4-2.1 2.6L37.6 78.6c-1.2.2-2.3-.8-2.5-2z"/>
+            <path class="gi-s" d="M44 28.5h38.5M44 36.2h29M44 43.8h33.5M44 51.2h24"/>
+            <path class="gi-s" d="M46 70.2v-9.4M53.5 70.2v-14.2M61 70.2v-7"/>
+            <path class="gi-red" d="M68.8 70.2V52.6"/>
+            <path class="gi-s" d="M104 24.5l32 41.5"/>
+            <path class="gi-fill" d="M100.8 28.2 108 22l5.2 4.1-7.4 6z"/>
+            <path class="gi-red" d="M133 64.2l5.4 7.2"/>
+          </svg>
+        </span>
         <h3>A Research Report With Your Name On It</h3>
         <p>You design the protocol, collect the data, write the findings, and defend it. From scratch to manuscript. Publication pathway included for outstanding work.</p>
       </div>
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <path class="gi-s" d="M50 36.5 76 16.2 102.5 36.8"/>
+            <path class="gi-fill" d="M55.2 34.8v22.6h41.8V35.4"/>
+            <path class="gi-s" d="M74.2 20.4v-7.2l7.6 1.8.8 6.4"/>
+            <path class="gi-red-fill" d="M71.6 42.6h9.8v15H71.6z"/>
+            <path class="gi-s" d="M60 44.8h8.6v8.2H60zM84.4 45.2h8.8v7.8H84.4z"/>
+            <circle class="gi-s" cx="28" cy="56.8" r="5.2"/>
+            <path class="gi-fill" d="M18.4 64.2 28 61.4l10.2 3v18.6l-10.4-2-9.8 1.8z"/>
+            <path class="gi-s" d="M21.6 88.2 28 76.6l6.8 11.4"/>
+            <circle class="gi-s" cx="56.8" cy="58.4" r="5"/>
+            <path class="gi-s" d="M56.8 63.6v17.8M49.2 70.4h15.2M49.6 88.4 56.8 81.2l7.4 7.4"/>
+            <circle class="gi-red" cx="96.4" cy="56.6" r="5.2"/>
+            <path class="gi-red-fill" d="M86.8 64 96.4 61.2l10.4 3.2v18.2l-10.6-1.8-10 1.6z"/>
+            <path class="gi-red" d="M90 88.2 96.4 76.8l6.8 11.2"/>
+            <circle class="gi-s" cx="126.2" cy="59.2" r="4.8"/>
+            <path class="gi-s" d="M126.2 64.2v16.6M119.4 71.2h13.6M119.8 87.6 126.2 80.6l6.6 7.2"/>
+          </svg>
+        </span>
         <h3>A Community Programme You Actually Ran</h3>
         <p>Your cluster takes the Gynix Girls' Club into real schools, reaches real adolescent girls, and tracks change over months — not a simulation. Field reports, attendance data, and outcome documentation all yours.</p>
       </div>
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <path class="gi-fill" d="M16 26.5 74 20.8 76 72.6 18.4 76.2z"/>
+            <path class="gi-fill" d="M78 20.6 136.2 28.2 133.6 76.8 76.4 72.4z"/>
+            <path class="gi-s" d="M75 21.2 76.2 72.8"/>
+            <path class="gi-s" d="M28 34.6h32M27 43.2h30M29 51.8h26M30 60.2h22"/>
+            <path class="gi-s" d="M90 36.4h32M91 45h28M92 53.6h24M93 62h18"/>
+            <path class="gi-s" d="M118 12.2 142 68.6"/>
+            <path class="gi-red-fill" d="M115.2 10.4h10.6l-1.2 5.8h-9.8z"/>
+            <path class="gi-red" d="M140.6 66.4l6.2 8.4"/>
+          </svg>
+        </span>
         <h3>Skills You Can Use Tomorrow</h3>
         <p>Research methods. Programme design. Community mobilisation. Leadership. Grant writing. Health advocacy. Digital tools. AI in public health. Taught by people doing this work, not describing it.</p>
       </div>
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <path class="gi-fill" d="M18.5 24.8h114.6l1.6 48.8H17.2z"/>
+            <path class="gi-s" d="M24.8 30.6h101.2v36.6H24.8z"/>
+            <path class="gi-s" d="M34 42.2h48M34 50.4h36M34 58.2h28"/>
+            <path class="gi-s" d="M34 68.8c6.4 4.2 16.8 5 26.2.6"/>
+            <circle class="gi-red-fill" cx="114" cy="54.6" r="10.4"/>
+            <path class="gi-red" d="M108.6 63.2 104 82.4M119.6 63.4l6.2 18.6"/>
+            <path class="gi-s" d="M110.2 51.4l3.8 3.6 6.4-7.2"/>
+          </svg>
+        </span>
         <h3>A Certificate That Means Something</h3>
         <p>Signed by a medical doctor and public health professionals. Naming what you specifically did — not just that you attended. There is a difference, and employers know it.</p>
       </div>
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <path class="gi-fill" d="M50.6 8.8h50.8l1.4 40.2H49.2z"/>
+            <path class="gi-s" d="M60 20.4h32M60 28.2h26.4M60 36h20"/>
+            <path class="gi-fill" d="M18.8 42.6 76 16.4 133.4 43.2v40.2H18.2z"/>
+            <path class="gi-s" d="M19.2 43 76 74.6 133 43.4"/>
+            <circle class="gi-red-fill" cx="76" cy="58.4" r="8"/>
+            <path class="gi-red" d="M76 52.8v11.2M70.4 58.4h11.2M72.2 54.2l7.6 8.4M79.8 54.2l-7.6 8.4"/>
+          </svg>
+        </span>
         <h3>A Guaranteed Reference Letter</h3>
         <p>Every graduate receives a professional reference letter valid for job applications, postgraduate admissions, and funding proposals. From practitioners who supervised your actual work.</p>
       </div>
       <div class="get-card">
+        <span class="get-illust" aria-hidden="true">
+          <svg viewBox="0 0 152 92">
+            <circle class="gi-s" cx="18" cy="30.2" r="6.4"/>
+            <path class="gi-s" d="M18 36.8v20.4M11.6 45.2h12.8M12 68.4 18 56.8l6.2 11.6"/>
+            <circle class="gi-s" cx="46" cy="24.8" r="6.8"/>
+            <path class="gi-fill" d="M35.2 36.6 46 33.8l11.4 3.2v21.6l-11.6-1.8-10.8 1.6z"/>
+            <path class="gi-s" d="M38.4 69.2 46 58.6l7.8 10.8"/>
+            <circle class="gi-red" cx="76" cy="22.8" r="7.2"/>
+            <path class="gi-red" d="M76 30.4v23.6M67.8 40.8h16.4M68.4 68.8 76 55.8l7.8 13.2"/>
+            <circle class="gi-s" cx="106" cy="25.6" r="6.6"/>
+            <path class="gi-fill" d="M95.4 36.8 106 34.2l11.2 3v20.8l-11.4-1.6-10.6 1.4z"/>
+            <path class="gi-s" d="M98.6 68.4 106 58l7.6 10.6"/>
+            <circle class="gi-s" cx="134.4" cy="31" r="6.2"/>
+            <path class="gi-s" d="M134.4 37.4v19.2M127.8 45.8h13.2M128.2 67.6l6.2-10.8 6.4 11"/>
+            <path class="gi-red" d="M22 80.8c18 6 42 7.6 108 1.2"/>
+          </svg>
+        </span>
         <h3>A Cluster That Outlasts the Fellowship</h3>
         <p>You are grouped with 4-6 fellows from day one. You research together, run programmes together, and hold each other accountable. Most clusters continue working together long after graduation.</p>
       </div>
@@ -660,7 +779,7 @@
   });
 
   (function () {
-    var phrases = ['a portfolio', 'recognition', 'visibility', 'a reputation', 'proof'];
+    var phrases = ['evidence', 'proof', 'a portfolio', 'a reputation', 'a track record'];
     var el = document.getElementById('hero-type');
     var frames = document.querySelectorAll('#hero-tile img');
     if (!el) return;
