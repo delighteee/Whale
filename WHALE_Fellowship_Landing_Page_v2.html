@@ -40,17 +40,16 @@
 
   .bar { display: none; }
 
-  nav { background: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 6px 6px 6px 18px; border: none; border-radius: 8px; position: fixed; top: 22px; left: 50%; transform: translateX(-50%); z-index: 100; width: max-content; max-width: calc(100vw - 32px); }
-  .logo { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.02em; }
-  .logo span { color: var(--ink-2); font-size: 10px; display: block; font-family: var(--font-mono); letter-spacing: 0.04em; font-weight: 400; text-transform: uppercase; }
+  nav { background: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 6px 6px 6px 14px; border: none; border-radius: 8px; position: fixed; top: 22px; left: 50%; transform: translateX(-50%); z-index: 100; width: max-content; max-width: calc(100vw - 32px); }
+  .logo { display: flex; align-items: center; line-height: 0; }
+  .logo img { display: block; height: 32px; width: auto; }
+  nav.nav--red .logo img { filter: brightness(0) invert(1); }
   .nav-cta { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); color: var(--paper); border: none; padding: 12px 22px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; text-decoration: none; letter-spacing: -0.02em; }
   .nav-cta .btn-label { position: relative; z-index: 2; transition: color 300ms var(--ease-expo); }
   .nav-cta .btn-overlay { pointer-events: none; position: absolute; inset: 0; z-index: 1; background: var(--riso-red); transform: translateY(200%) rotate(15deg) scale(1.8); border-radius: 6px; transition: transform var(--dur-reveal) var(--ease-expo); }
   .nav-cta:hover .btn-overlay { transform: translateY(0) rotate(8deg) scale(1.8); }
   .nav-cta:hover .btn-label { color: var(--paper); }
   nav.nav--red { background: var(--riso-red); }
-  nav.nav--red .logo { color: var(--paper); }
-  nav.nav--red .logo span { color: var(--paper); }
   nav.nav--red .nav-cta { background: var(--paper); color: var(--riso-red); }
   nav.nav--red .nav-cta .btn-overlay { background: var(--ink); }
 
@@ -70,8 +69,8 @@
   .hero-grid { position: absolute; inset: 8px; z-index: 2; pointer-events: none; opacity: 0.22; background-image: linear-gradient(to right, color-mix(in srgb, var(--paper) 55%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--paper) 55%, transparent) 1px, transparent 1px); background-size: calc(100% / 6) calc(100% / 4); mask-image: linear-gradient(90deg, transparent 0%, transparent 48%, #000 62%); }
 
   .hero-copy { position: relative; z-index: 3; max-width: none; min-width: 0; }
-  .hero-kicker { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: -0.02em; text-transform: uppercase; color: var(--paper); opacity: 0.8; margin-bottom: 20px; }
-  .hero h1 { font-family: var(--font-serif); font-size: clamp(34px, 5.2vw, 80px); font-weight: 600; color: var(--paper); line-height: 1; max-width: none; margin-bottom: 0; overflow: visible; }
+  .hero-kicker { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: -0.04em; text-transform: uppercase; color: var(--paper); opacity: 0.8; margin-bottom: 20px; }
+  .hero h1 { font-family: var(--font-serif); font-size: clamp(34px, 5.2vw, 80px); font-weight: 900; color: var(--paper); line-height: 1; max-width: none; margin-bottom: 0; overflow: visible; }
   .hero h1 .js-reveal { display: block; overflow: visible; padding-bottom: 0.08em; white-space: nowrap; }
   .hero h1 em { font-style: italic; color: var(--riso-red); }
   .type-slot { display: inline; white-space: nowrap; }
@@ -263,7 +262,8 @@
     .problem-grid { grid-template-columns: 1fr; }
     .fit-grid { grid-template-columns: 1fr; }
     .price-box { padding: 40px 28px; }
-    nav { left: 50%; top: 10px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 20px); padding: 6px 6px 6px 14px; gap: 16px; }
+    nav { left: 50%; top: 10px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 20px); padding: 6px 6px 6px 12px; gap: 16px; }
+    .logo img { height: 26px; }
     .hero { padding: 100px 20px 24px; align-items: stretch; min-height: 100svh; }
     .hero-grid { display: none; }
     .hero-copy { text-align: center; }
@@ -294,7 +294,7 @@
 <div class="bar"><span class="live">Applications close September 20, 2026</span> &nbsp;·&nbsp; Only 10 spots. First cohort ever.</div>
 
 <nav>
-  <div class="logo">Gynix Afrika <span>WHALE Fellowship 2026</span></div>
+  <a href="#hero" class="logo"><img src="assets/whale-logo.png" alt="WHALE Fellowship" width="528" height="127"/></a>
   <a href="#apply" class="nav-cta"><span class="btn-overlay"></span><span class="btn-label">Apply Now</span></a>
 </nav>
 
