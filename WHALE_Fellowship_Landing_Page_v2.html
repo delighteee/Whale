@@ -70,8 +70,9 @@
 
   .hero-copy { position: relative; z-index: 3; max-width: none; min-width: 0; }
   .hero-kicker { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: -0.04em; text-transform: uppercase; color: var(--paper); opacity: 0.8; margin-bottom: 20px; }
-  .hero h1 { font-family: var(--font-serif); font-size: clamp(34px, 5.2vw, 80px); font-weight: 900; color: var(--paper); line-height: 1; max-width: none; margin-bottom: 0; overflow: visible; }
-  .hero h1 .js-reveal { display: block; overflow: visible; padding-bottom: 0.08em; white-space: nowrap; }
+  .hero h1 { font-family: var(--font-serif); font-size: clamp(34px, 5.2vw, 80px); font-weight: 700; color: var(--paper); line-height: 0.95; max-width: none; margin-bottom: 0; overflow: visible; }
+  .hero h1 .js-reveal { display: block; overflow: visible; padding: 0; white-space: nowrap; }
+  .hero h1 .js-reveal > .js-reveal-inner { padding: 0 0.06em 0.02em 0; }
   .hero h1 em { font-style: italic; color: var(--riso-red); }
   .type-slot { display: inline; white-space: nowrap; }
   .type-slot em { font-style: italic; color: var(--riso-red); }
@@ -118,7 +119,7 @@
   .hero.is-ready .hud-bar-fill { transform: scaleX(var(--p, 0.6)); }
 
   .js-reveal { overflow: clip; }
-  .js-reveal > .js-reveal-inner { display: block; transform: translateY(115%); transition: transform var(--dur-reveal) var(--ease-expo); }
+  .js-reveal > .js-reveal-inner { display: block; transform: translateY(115%); padding: 0.1em 0.14em 0.24em 0; transition: transform var(--dur-reveal) var(--ease-expo); }
   .js-reveal.is-in > .js-reveal-inner { transform: translateY(0); }
   .hero-copy .js-reveal:nth-child(1) > .js-reveal-inner { transition-delay: 80ms; }
   .hero-copy .js-reveal:nth-child(2) > .js-reveal-inner { transition-delay: 180ms; }
@@ -134,7 +135,7 @@
   .proof-bar { background: var(--paper); color: var(--ink); display: flex; justify-content: center; flex-wrap: wrap; gap: 0; border-top: var(--border); border-bottom: var(--border); }
   .proof-item { padding: 28px 40px; text-align: center; border-right: 1px solid var(--mist-2); }
   .proof-item:last-child { border-right: none; }
-  .proof-num { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--riso-red); display: block; line-height: 1; }
+  .proof-num { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--riso-red); display: block; line-height: 1.15; }
   .proof-lbl { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); text-transform: uppercase; letter-spacing: -0.02em; margin-top: 6px; font-weight: 400; }
 
   .support-bar { display: flex; flex-direction: column; align-items: center; background: var(--paper); color: var(--ink); border-bottom: var(--border); padding: 28px 48px 32px; }
@@ -149,8 +150,8 @@
   .container { max-width: 820px; margin: 0 auto; }
   .container-wide { max-width: 1080px; margin: 0 auto; }
   .eyebrow { font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: -0.02em; text-transform: uppercase; color: var(--riso-red-ink); display: block; margin-bottom: 16px; }
-  h2 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px; }
-  h2 em { font-style: italic; color: var(--riso-red); }
+  h2 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 64px); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px; overflow: visible; }
+  h2 em { font-style: italic; color: var(--riso-red); padding-right: 0.06em; }
 
   .problem { background: var(--paper); }
   .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border: var(--border); }
@@ -161,7 +162,7 @@
 
   .solution { position: relative; isolation: isolate; min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--paper); overflow: clip; padding: 120px 24px; background: #3a140f; }
   .solution-bg { position: absolute; inset: 0; z-index: 0; }
-  .solution-bg img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); filter: saturate(1.45) contrast(1.2) brightness(0.62) sepia(0.45) hue-rotate(-12deg); }
+  .solution-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transform: scale(1.04); filter: saturate(1.05) contrast(1.08) brightness(0.55); }
   .solution-grade { position: absolute; inset: 0; z-index: 1; pointer-events: none; background:
     linear-gradient(180deg, rgba(58, 20, 15, 0.28) 0%, rgba(232, 70, 74, 0.22) 42%, rgba(21, 34, 74, 0.42) 100%),
     radial-gradient(ellipse at 50% 28%, rgba(255, 170, 70, 0.35), transparent 58%);
@@ -170,7 +171,7 @@
   .solution-grain { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.42; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
   .solution-inner { position: relative; z-index: 3; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .solution .eyebrow { color: var(--paper); opacity: 0.9; margin-bottom: 20px; }
-  .solution h2 { color: var(--paper); font-size: clamp(40px, 6.8vw, 85px); line-height: 0.95; margin-bottom: 24px; }
+  .solution h2 { color: var(--paper); font-size: clamp(40px, 6.8vw, 85px); line-height: 1.1; margin-bottom: 24px; }
   .solution h2 em { color: var(--paper); font-style: italic; }
   .solution p { color: var(--paper); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; font-weight: 400; max-width: 48ch; margin: 0 auto 36px; }
   .solution p strong { color: var(--paper); font-weight: 600; }
@@ -184,7 +185,7 @@
   .get-illust .gi-fill { fill: var(--paper-2); stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
   .get-illust .gi-red { fill: none; stroke: var(--riso-red); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
   .get-illust .gi-red-fill { fill: color-mix(in srgb, var(--riso-red) 16%, var(--paper)); stroke: var(--riso-red); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
-  .get-card h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.02em; }
+  .get-card h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.25; overflow: visible; }
   .get-card p { font-size: 14px; color: var(--ink); line-height: 1.65; }
 
   .fit { background: var(--paper); }
@@ -204,7 +205,7 @@
   .curriculum { background: var(--paper); }
   .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; margin-top: 48px; border: var(--border); }
   .module-card { background: var(--paper); padding: 28px 24px; border-right: 1px solid var(--mist-2); border-bottom: 1px solid var(--mist-2); }
-  .module-num { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--riso-red); line-height: 1; margin-bottom: 10px; }
+  .module-num { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--riso-red); line-height: 1.15; margin-bottom: 10px; }
   .module-card h3 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.02em; }
   .module-card p { font-size: 12.5px; color: var(--ink); line-height: 1.6; }
 
@@ -214,22 +215,37 @@
   .how-stack { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; }
   .how-card { position: sticky; top: 96px; background: var(--paper); border: var(--border); padding: 48px 40px; min-height: 42vh; display: flex; flex-direction: column; justify-content: center; }
   .how-card .step-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: -0.02em; text-transform: uppercase; color: var(--riso-red-ink); font-weight: 400; margin-bottom: 16px; }
-  .how-card h3 { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 48px); font-weight: 400; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; }
+  .how-card h3 { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 48px); font-weight: 400; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.15; overflow: visible; }
   .how-card p { font-size: 16px; color: var(--ink); line-height: 1.65; font-weight: 300; max-width: 52ch; }
 
   .testimonials { background: var(--paper); }
   .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; margin-top: 48px; border: var(--border); }
-  .testi-card { background: var(--paper); padding: 36px 28px; position: relative; border-right: 1px solid var(--mist-2); border-bottom: 1px solid var(--mist-2); }
-  .testi-card::before { content: '\201C'; font-family: var(--font-serif); font-size: 80px; color: var(--riso-red); opacity: 0.20; position: absolute; top: 8px; left: 20px; line-height: 1; }
+  .testi-card { background: var(--paper); padding: 0; position: relative; border-right: 1px solid var(--mist-2); border-bottom: 1px solid var(--mist-2); display: flex; flex-direction: column; }
+  .testi-card::before { content: none; }
+  .testi-photo { aspect-ratio: 1; overflow: hidden; background: var(--paper-2); }
+  .testi-photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) saturate(0.9) contrast(1.04); }
+  .testi-body { padding: 28px 28px 32px; position: relative; flex: 1; }
+  .testi-body::before { content: '\201C'; font-family: var(--font-serif); font-size: 80px; color: var(--riso-red); opacity: 0.20; position: absolute; top: 4px; left: 16px; line-height: 1; }
   .testi-card p { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; font-style: italic; position: relative; z-index: 1; }
   .testi-name { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: -0.02em; text-transform: uppercase; color: var(--riso-red); margin-top: 20px; font-style: normal; }
+
+  .faq { background: var(--paper); }
+  .faq-list { margin-top: 48px; border: var(--border); }
+  .faq-item { border-bottom: 1px solid var(--mist-2); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; font-family: var(--font-serif); font-size: clamp(20px, 2.4vw, 26px); font-weight: 400; line-height: 1.25; color: var(--ink); padding: 24px 28px; overflow: visible; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { content: ''; }
+  .faq-item summary::after { content: '+'; font-family: var(--font-serif); color: var(--riso-red); font-size: 28px; line-height: 1; flex-shrink: 0; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item .faq-a { padding: 0 28px 24px; font-size: 15px; color: var(--ink); line-height: 1.65; font-weight: 300; max-width: 62ch; }
 
   .pricing { background: var(--paper); }
   .pricing .eyebrow { color: var(--riso-red-ink); }
   .pricing h2 { color: var(--ink); }
   .price-box { background: var(--paper); border: var(--border); border-radius: 0; padding: 56px 48px; max-width: 600px; margin: 48px auto 0; text-align: center; position: relative; }
   .old-price { font-size: 20px; color: var(--ink-3); text-decoration: line-through; margin-bottom: 8px; letter-spacing: 0.04em; }
-  .new-price { font-family: var(--font-serif); font-size: clamp(56px, 10vw, 96px); font-weight: 400; color: var(--ink); line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px; }
+  .new-price { font-family: var(--font-serif); font-size: clamp(56px, 10vw, 96px); font-weight: 400; color: var(--ink); line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 6px; }
   .per-month { font-size: 14px; color: var(--ink-2); margin-bottom: 40px; font-weight: 300; }
   .checklist { text-align: left; margin: 0 auto 40px; max-width: 360px; }
   .checklist li { list-style: none; font-size: 14px; color: var(--ink); padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--mist-2); font-weight: 300; }
@@ -241,7 +257,16 @@
   .deadline { font-size: 13px; color: var(--ink-2); margin-top: 16px; font-style: italic; }
 
   footer { background: var(--paper); color: var(--ink-2); text-align: center; padding: 48px 24px; font-size: 13px; line-height: 1.8; border-top: var(--border); }
-  footer strong { color: var(--ink); font-family: var(--font-serif); font-size: 22px; font-weight: 400; display: block; margin-bottom: 8px; }
+  footer .footer-logo { display: inline-block; line-height: 0; margin-bottom: 16px; }
+  footer .footer-logo img { display: block; height: 40px; width: auto; margin: 0 auto; }
+  footer .footer-by { color: var(--ink); margin: 0 0 16px; font-size: 14px; }
+  footer .footer-by a { color: var(--riso-red); text-decoration: none; font-weight: 500; }
+  footer .footer-by a:hover { text-decoration: underline; }
+  footer .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 12px; padding: 0; list-style: none; }
+  footer .footer-links a { color: var(--ink); text-decoration: none; font-family: var(--font-mono); font-size: 12px; letter-spacing: -0.02em; text-transform: uppercase; }
+  footer .footer-links a:hover { color: var(--riso-red); }
+  footer .footer-mail { color: var(--ink-2); text-decoration: none; }
+  footer .footer-mail:hover { color: var(--riso-red); }
 
   @media (min-width: 960px) {
     .hero { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); align-items: center; padding: 0 56px; gap: 40px; min-height: 100svh; }
@@ -280,6 +305,9 @@
     .hero-tile { position: relative; left: auto; top: auto; width: min(200px, 56vw); max-width: 200px; margin-inline: auto; }
     .hud-countdown { font-size: 13px; }
     .how-card { top: 80px; padding: 32px 24px; min-height: 36vh; }
+    .testi-photo { aspect-ratio: 5 / 4; }
+    .faq-item summary { padding: 20px 20px; font-size: 20px; }
+    .faq-item .faq-a { padding: 0 20px 20px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -291,7 +319,7 @@
 </head>
 <body>
 
-<div class="bar"><span class="live">Applications close September 20, 2026</span> &nbsp;·&nbsp; Only 10 spots. First cohort ever.</div>
+<div class="bar"><span class="live">Applications close September 20, 2026</span> &nbsp;·&nbsp; First cohort ever.</div>
 
 <nav>
   <a href="#hero" class="logo"><img src="assets/whale-logo.png" alt="WHALE Fellowship" width="528" height="127"/></a>
@@ -394,7 +422,7 @@
 <!-- SOLUTION -->
 <section class="solution">
   <div class="solution-bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2400&q=75" alt="" width="2400" height="1600"/>
+    <img src="assets/intro-whale.jpg" alt="" width="1024" height="713"/>
   </div>
   <div class="solution-grade" aria-hidden="true"></div>
   <div class="solution-grade-tint" aria-hidden="true"></div>
@@ -403,7 +431,7 @@
     <span class="eyebrow">Introducing WHALE Fellowship</span>
     <h2>Six months.<br/>Real work.<br/><em>Undeniable proof.</em></h2>
     <p>
-      WHALE is Gynix Afrika's flagship fellowship. In six months you will <strong>run a real community health programme</strong>, <strong>complete an applied research project from protocol to written report</strong>, and leave with work that is documented, assessed, and yours to take anywhere.
+      WHALE (Women's Health, Advocacy, Leadership & Excellence) is Gynix Afrika's flagship fellowship. In six months you will <strong>run a real community health programme</strong>, <strong>complete an applied research project from protocol to written report</strong>, and leave with work that is documented, assessed, and yours to take anywhere.
     </p>
     <a href="#apply" class="btn-swipe btn-swipe--ink"><span class="btn-overlay"></span><span class="btn-label">Claim your spot</span></a>
   </div>
@@ -430,8 +458,8 @@
             <path class="gi-red" d="M133 64.2l5.4 7.2"/>
           </svg>
         </span>
-        <h3>A Research Report With Your Name On It</h3>
-        <p>You design the protocol, collect the data, write the findings, and defend it. From scratch to manuscript. Publication pathway included for outstanding work.</p>
+        <h3>A Report With Your Name On It</h3>
+        <p>You design the protocol, write the findings, and defend them. The work is yours to take anywhere.</p>
       </div>
       <div class="get-card">
         <span class="get-illust" aria-hidden="true">
@@ -453,8 +481,8 @@
             <path class="gi-s" d="M126.2 64.2v16.6M119.4 71.2h13.6M119.8 87.6 126.2 80.6l6.6 7.2"/>
           </svg>
         </span>
-        <h3>A Community Programme You Actually Ran</h3>
-        <p>Your cluster takes the Gynix Girls' Club into real schools, reaches real adolescent girls, and tracks change over months — not a simulation. Field reports, attendance data, and outcome documentation all yours.</p>
+        <h3>A Programme You Actually Ran</h3>
+        <p>Your cluster takes the Gynix Girls' Club into real schools and tracks what changes — not a simulation.</p>
       </div>
       <div class="get-card">
         <span class="get-illust" aria-hidden="true">
@@ -470,7 +498,7 @@
           </svg>
         </span>
         <h3>Skills You Can Use Tomorrow</h3>
-        <p>Research methods. Programme design. Community mobilisation. Leadership. Grant writing. Health advocacy. Digital tools. AI in public health. Taught by people doing this work, not describing it.</p>
+        <p>Research, leadership, advocacy, and programme design — taught by people doing the work.</p>
       </div>
       <div class="get-card">
         <span class="get-illust" aria-hidden="true">
@@ -484,8 +512,8 @@
             <path class="gi-s" d="M110.2 51.4l3.8 3.6 6.4-7.2"/>
           </svg>
         </span>
-        <h3>A Certificate That Means Something</h3>
-        <p>Signed by a medical doctor and public health professionals. Naming what you specifically did — not just that you attended. There is a difference, and employers know it.</p>
+        <h3>A Certificate That Names Your Work</h3>
+        <p>Signed by a trained gyneacologist. It records what you did, not that you attended.</p>
       </div>
       <div class="get-card">
         <span class="get-illust" aria-hidden="true">
@@ -498,8 +526,8 @@
             <path class="gi-red" d="M76 52.8v11.2M70.4 58.4h11.2M72.2 54.2l7.6 8.4M79.8 54.2l-7.6 8.4"/>
           </svg>
         </span>
-        <h3>A Guaranteed Reference Letter</h3>
-        <p>Every graduate receives a professional reference letter valid for job applications, postgraduate admissions, and funding proposals. From practitioners who supervised your actual work.</p>
+        <h3>A Reference Letter, Guaranteed</h3>
+        <p>From practitioners who supervised you — for jobs, school, and funding.</p>
       </div>
       <div class="get-card">
         <span class="get-illust" aria-hidden="true">
@@ -519,8 +547,8 @@
             <path class="gi-red" d="M22 80.8c18 6 42 7.6 108 1.2"/>
           </svg>
         </span>
-        <h3>A Cluster That Outlasts the Fellowship</h3>
-        <p>You are grouped with 4-6 fellows from day one. You research together, run programmes together, and hold each other accountable. Most clusters continue working together long after graduation.</p>
+        <h3>A Cluster That Lasts</h3>
+        <p>Four to six fellows from day one. Most keep working together after they graduate.</p>
       </div>
     </div>
   </div>
@@ -549,7 +577,7 @@
           <li>You are looking for general clinical or medical knowledge</li>
           <li>You want the certificate without the work that earns it</li>
           <li>Group projects, fieldwork, and weekly commitments don't fit where you are right now</li>
-          <li>You think ₦10,000 is too much to invest in six months of your career</li>
+          <li>You think ₦15,000 is too much to invest in six months of your career</li>
         </ul>
       </div>
     </div>
@@ -567,47 +595,47 @@
       <div class="module-card">
         <div class="module-num">01</div>
         <h3>Women's & Reproductive Health</h3>
-        <p>Evidence, rights, the full reproductive life-course. GBV, HIV/STIs, cancers, maternal health, mental health. Clinician-taught.</p>
+        <p>Maternal health, GBV, HIV, cancers, and rights — taught by clinicians.</p>
       </div>
       <div class="module-card">
         <div class="module-num">02</div>
         <h3>Leadership</h3>
-        <p>Know yourself. Lead your cluster. Speak up in rooms that used to intimidate you. Build the discipline that actually sustains the work.</p>
+        <p>Lead your cluster, speak up, and keep the work going.</p>
       </div>
       <div class="module-card">
         <div class="module-num">03</div>
         <h3>Communication & Advocacy</h3>
-        <p>Present with authority. Write with precision. Advocate in public. Your voice is an instrument — this pillar sharpens it.</p>
+        <p>Speak, write, and advocate so people take you seriously.</p>
       </div>
       <div class="module-card">
         <div class="module-num">04</div>
         <h3>Research & Evidence</h3>
-        <p>Design a study, collect data, analyse, write. The full cycle. Not theoretical — you are doing this live with your capstone project.</p>
+        <p>Design a study, collect the data, and write it up — on your real capstone.</p>
       </div>
       <div class="module-card">
         <div class="module-num">05</div>
         <h3>Innovation & Digital Health</h3>
-        <p>Design thinking. AI in public health. Digital tools that are reshaping women's health delivery across Africa. Build for the future.</p>
+        <p>The digital tools and ideas changing how women's health is delivered.</p>
       </div>
       <div class="module-card">
         <div class="module-num">06</div>
         <h3>Programme Design & Execution</h3>
-        <p>Theory of change to field report. Budget to beneficiary. This is where you learn to turn an idea into something that actually happens.</p>
+        <p>Turn an idea into a programme that actually runs.</p>
       </div>
       <div class="module-card">
         <div class="module-num">07</div>
         <h3>Community Building</h3>
-        <p>Hold a safe space. Mobilise people. Build coalitions. The Gynix Circle model — one of Africa's most intentional women's peer platforms — is yours to facilitate.</p>
+        <p>Hold a room, bring people together, and facilitate a Gynix Circle.</p>
       </div>
       <div class="module-card">
         <div class="module-num">08</div>
         <h3>Career & Resource Mobilisation</h3>
-        <p>Write a grant proposal. Build a professional identity that travels. Map a career path that is yours, not borrowed from someone else's script.</p>
+        <p>Write a grant, shape your path, and build a name that travels.</p>
       </div>
       <div class="module-card">
         <div class="module-num">09</div>
         <h3>Professional & Digital Excellence</h3>
-        <p>Show up like you belong in global health spaces — because after six months, you do. Digital tools, professional conduct, workplace presence.</p>
+        <p>How you show up — in rooms, online, and at work.</p>
       </div>
     </div>
   </div>
@@ -651,29 +679,71 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div class="container-wide">
     <div class="container">
-      <span class="eyebrow">From past fellows</span>
-      <h2>They hesitated too.<br/><em>Then they applied.</em></h2>
-    </div>
+      <span class="eyebrow">From campus ambassadors</span>
+      <h2>Don't take our word for it<br/><em>Hear from our ambassadors</em></h2>
+ </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <p>"Before WHALE, I could tell you all about women's health. After, I could prove I had done something about it. That is a completely different sentence at an interview."</p>
-        <span class="testi-name">— WHALE Fellow, Lagos</span>
+        <div class="testi-photo"><img src="assets/testi-lagos.jpg" alt="" width="900" height="900"/></div>
+        <div class="testi-body">
+          <p>"Before WHALE, I could tell you all about women's health. After, I could prove I had done something about it. That is a completely different sentence at an interview."</p>
+          <span class="testi-name">— Gynix Afrika Campus Ambassador, Lagos</span>
+        </div>
       </div>
       <div class="testi-card">
-        <p>"I have a research report with my name on it. I facilitated health sessions for 60 girls. I ran a community programme. My degree didn't give me any of that. This did."</p>
-        <span class="testi-name">— WHALE Fellow, Ibadan</span>
+        <div class="testi-photo"><img src="assets/testi-ibadan.jpg" alt="" width="900" height="900"/></div>
+        <div class="testi-body">
+          <p>"I have a research report with my name on it. I facilitated health sessions for 60 girls. I ran a community programme. My degree didn't give me any of that. This did."</p>
+          <span class="testi-name">— Gynix Afrika Campus Ambassador, Ibadan</span>
+        </div>
       </div>
       <div class="testi-card">
-        <p>"I came in passionate and directionless. I left with a cluster, a capstone, a reference letter from a doctor, and a clearer idea of what I'm actually building."</p>
-        <span class="testi-name">— WHALE Fellow, Abuja</span>
+        <div class="testi-photo"><img src="assets/testi-abuja.jpg" alt="" width="900" height="900"/></div>
+        <div class="testi-body">
+          <p>"I came in passionate and directionless. I left with a cluster, a capstone, a reference letter from a doctor, and a clearer idea of what I'm actually building."</p>
+          <span class="testi-name">— Gynix Afrika Campus Ambassador, Abuja</span>
+        </div>
       </div>
       <div class="testi-card">
-        <p>"The moment I facilitated my first Gynix Circle — watching women open up in that space — I understood why this fellowship exists. No classroom ever gave me that."</p>
-        <span class="testi-name">— WHALE Fellow, Port Harcourt</span>
+        <div class="testi-photo"><img src="assets/testi-ph.jpg" alt="" width="900" height="900"/></div>
+        <div class="testi-body">
+          <p>"The moment I facilitated my first Gynix Circle — watching women open up in that space — I understood why this fellowship exists. No classroom ever gave me that."</p>
+          <span class="testi-name">— Gynix Afrika Campus Ambassador, Port Harcourt</span>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h2>We answered some questions<br/><em>so you don't have to ask.</em></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Who can apply?</summary>
+        <p class="faq-a">Students and graduates building toward public health, global health, advocacy, research, or NGO work. If you want real experience — not another certificate — this is built for you.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much time does it take?</summary>
+        <p class="faq-a">Six months, starting October 2026. The first 12 weeks: two live 90-minute sessions a week. From week 5, you also run fieldwork with your cluster.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What do I actually leave with?</summary>
+        <p class="faq-a">A research report with your name on it, a programme you ran, a certificate that names the work, a guaranteed reference letter, and a cluster that lasts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When do applications close?</summary>
+        <p class="faq-a">Midnight, 20 September 2026. The fellowship begins October 2026.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does it cost?</summary>
+        <p class="faq-a">₦15,000 for six months. Show up for 30 days. If it isn't what we said — full refund, immediately.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -682,25 +752,21 @@
 <section class="pricing" id="apply">
   <div class="container">
     <span class="eyebrow">Your investment</span>
-    <h2>₦10,000 for six months<br/>of work that <em>follows you everywhere.</em></h2>
+    <h2>₦15,000 for six months<br/>of work that <em>follows you everywhere.</em></h2>
     <div class="price-box">
       <p class="old-price">Regular price: ₦60,000</p>
-      <p class="new-price">₦10,000</p>
-      <p class="per-month">That is ₦1,667 a month. Less than most people spend on data.</p>
+      <p class="new-price">₦15,000</p>
+      <p class="per-month">That is ₦2,500 a month. Less than most people spend on data.</p>
 
       <ul class="checklist">
         <li>23 live sessions with doctors and public health professionals</li>
-        <li>Applied research project — protocol to published manuscript pathway</li>
-        <li>Gynix Girls' Club field programme with real adolescent girls</li>
-        <li>Gynix Circle facilitation training and hosting</li>
-        <li>Policy advocacy initiative on your campus or in your community</li>
-        <li>Certificate signed by medical professionals — naming your work</li>
-        <li>Guaranteed reference letter for every graduate</li>
-        <li>WHALE alumni network membership for life</li>
-        <li>30-day money-back guarantee — no argument, no forms</li>
+        <li>An applied research project — from protocol to written report</li>
+        <li>A Girls' Club programme and Gynix Circle you actually run</li>
+        <li>A certificate that names your work, and a guaranteed reference letter</li>
+        <li>A cluster and alumni network that last after you graduate</li>
       </ul>
 
-      <p class="spots-big">⚠ Only 10 spots. This is the first cohort ever. Applications close September 20.</p>
+      <p class="spots-big">This is the first cohort. Applications close September 20.</p>
 
       <a href="#" class="btn-swipe btn-swipe--accent btn-primary-lg"><span class="btn-overlay"></span><span class="btn-label">Apply for WHALE 2026</span></a>
 
@@ -713,9 +779,14 @@
 </section>
 
 <footer>
-  <strong>Gynix Afrika</strong>
-  Women's Health, Advocacy, Leadership & Excellence<br/>
-  enquiries@gynixafrika.org &nbsp;·&nbsp; @gynixafrika<br/><br/>
+  <a href="#hero" class="footer-logo"><img src="assets/whale-logo.png" alt="WHALE Fellowship" width="528" height="127"/></a>
+  <p class="footer-by">A fellowship by <a href="https://gynixafrika.com" target="_blank" rel="noopener noreferrer">Gynix Afrika</a></p>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/gynixafrika/" target="_blank" rel="noopener noreferrer">Instagram @gynixafrika</a></li>
+    <li><a href="https://www.linkedin.com/company/gynix-afrika" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <li><a href="https://gynixafrika.com" target="_blank" rel="noopener noreferrer">gynixafrika.com</a></li>
+  </ul>
+  <a class="footer-mail" href="mailto:hello@gynixafrika.com">hello@gynixafrika.com</a><br/><br/>
   <span style="font-size:11px; opacity:0.5;">Building the Pan-African women's health movement, one fellow at a time.</span>
 </footer>
 
@@ -829,7 +900,7 @@
     setTimeout(tick, holdMs);
   })();
 
-  document.querySelectorAll('.proof-item, .problem-card, .get-card, .fit-col, .module-card, .testi-card, .price-box, .how-card').forEach(function (el, i) {
+  document.querySelectorAll('.proof-item, .problem-card, .get-card, .fit-col, .module-card, .testi-card, .price-box, .how-card, .faq-item').forEach(function (el, i) {
     el.classList.add('js-rise');
     el.style.transitionDelay = (i % 6) * 70 + 'ms';
   });
