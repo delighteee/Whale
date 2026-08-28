@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/WHALE_Fellowship_Landing_Page_v2.html"
+  status = 200
