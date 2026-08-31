@@ -57,7 +57,7 @@
   section:not(.hero):not(.solution) { padding: 96px clamp(16px, 4vw, 24px); }
   .hero { background: var(--ink); min-height: 100svh; display: grid; grid-template-columns: 1fr; align-items: end; padding: 120px 24px 40px; position: relative; overflow: clip; }
   .hero-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-bg img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; transform: scale(1.06); }
   .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(21,34,74,0.88) 0%, rgba(21,34,74,0.78) 52%, rgba(21,34,74,0.72) 100%), rgba(10,14,32,0.28); }
   .hero-frame { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
   .hero-frame span { position: absolute; background: color-mix(in srgb, var(--paper) 28%, transparent); }
@@ -106,7 +106,7 @@
   .hero-stage { position: relative; z-index: 3; width: 100%; max-width: 280px; margin-top: 40px; color: var(--paper); }
   .hero-cluster { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; width: 100%; }
   .hero-tile { position: relative; width: 100%; max-width: 240px; aspect-ratio: 1; background: var(--riso-red); overflow: hidden; box-shadow: 0 18px 48px rgba(0,0,0,0.28); }
-  .hero-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 900ms var(--ease-expo); }
+  .hero-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; opacity: 0; transition: opacity 900ms var(--ease-expo); }
   .hero-tile img.is-on { opacity: 1; }
   .hud { position: relative; display: flex; flex-direction: column; gap: 4px; }
   .hud p { margin: 0; }
@@ -443,7 +443,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=2400&q=75" alt="" width="2400" height="1600"/>
+    <img src="assets/intro-whale.jpg" alt="" width="1024" height="713"/>
   </div>
   <div class="hero-frame" aria-hidden="true"><span class="hf-t"></span><span class="hf-r"></span><span class="hf-b"></span><span class="hf-l"></span></div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -478,11 +478,11 @@
         </p>
       </div>
       <div class="hero-tile" id="hero-tile">
-        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=70" alt="Portrait of a woman" class="is-on"/>
-        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=900&q=70" alt="Portrait of a woman"/>
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=70" alt="Portrait of a woman"/>
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=70" alt="Portrait of a woman"/>
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=70" alt="Portrait of a woman"/>
+        <img src="assets/hero-seq-01.jpg" alt="Gynix Afrika fellow facilitating a session" class="is-on" width="1024" height="683"/>
+        <img src="assets/hero-seq-02.jpg" alt="Adolescent girl at a Gynix Afrika outreach" width="1024" height="683"/>
+        <img src="assets/hero-seq-03.jpg" alt="Fellows reviewing work together" width="1024" height="683"/>
+        <img src="assets/hero-seq-04.jpg" alt="Gynix Afrika facilitator speaking to a room" width="1024" height="683"/>
+        <img src="assets/hero-seq-05.jpg" alt="Gynix Afrika lead with adolescent girls" width="1024" height="683"/>
       </div>
     </div>
   </aside>
